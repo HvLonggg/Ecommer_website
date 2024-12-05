@@ -20,7 +20,12 @@
             }
 
             .container {
-                margin-top: 30px;
+                max-width: 900px;
+                margin: 30px auto;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             }
 
             h1 {
@@ -56,7 +61,7 @@
             }
 
             th, td {
-                padding: 15px;
+                padding: 12px 15px;
                 text-align: center;
                 border: 1px solid #ddd;
                 font-size: 16px;
@@ -97,6 +102,30 @@
             }
 
             button:hover {
+                background-color: #d4530b;
+            }
+
+            /* Tổng tiền */
+            h3 {
+                color: #f26522;
+                font-size: 24px;
+                margin-top: 20px;
+                text-align: right;
+            }
+
+            a.checkout {
+                background-color: #f26522;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                display: inline-block;
+                text-align: center;
+                margin-top: 10px;
+                text-decoration: none;
+                font-size: 18px;
+            }
+
+            a.checkout:hover {
                 background-color: #d4530b;
             }
 
@@ -165,35 +194,11 @@
             .input-group-append button:hover {
                 background-color: #d4530b;
             }
-
-            /* Tổng tiền */
-            h3 {
-                color: #f26522;
-                font-size: 24px;
-                margin-top: 20px;
-                text-align: right;
-            }
-
-            a.checkout {
-                background-color: #f26522;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 5px;
-                display: inline-block;
-                text-align: center;
-                margin-top: 10px;
-                text-decoration: none;
-                font-size: 18px;
-            }
-
-            a.checkout:hover {
-                background-color: #d4530b;
-            }
-
         </style>
+
     </head>
     <body>
-        <div>
+        <div class="container">
             <%-- Hiển thị thông báo lỗi nếu có --%>
             <c:if test="${not empty error}">
                 <div class="alert alert-danger">
@@ -202,7 +207,7 @@
             </c:if>
 
             <h1>Giỏ hàng của bạn</h1>
-            <table border="1">
+            <table>
                 <tr>
                     <th>STT</th>
                     <th>Sản phẩm</th>
@@ -230,7 +235,6 @@
                         <a href="deleteCartItem?id=<%= item.getId()%>">Xóa</a>
                     </td>
                 </tr>
-
                 <% }%>
             </table>
 
@@ -239,5 +243,6 @@
             <a href="/tradingjdbc_demo/listhome" class="back-home">Quay lại trang chủ</a>
         </div>
     </body>
+
 
 </html>
